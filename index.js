@@ -37,7 +37,7 @@ app.get("/PedidosDeCompra_Ekpo", async (req, res) => {
     const pool = await sql.connect(config);
 
     const result = await pool.request().query(`
-      SELECT EBELN, EBELP, AEDAT, TXZ01, MENGE, PLIFZ 
+      SELECT EBELN, EBELP, AEDAT, LGORT, TXZ01, MENGE, PLIFZ 
       FROM PedidosDeCompra_Ekpo
     `);
 
