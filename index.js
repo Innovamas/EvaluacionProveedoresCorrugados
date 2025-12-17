@@ -14,14 +14,14 @@ const config = {
   }
 };
 
-// Endpoint para leer MM60
-app.get("/mm60", async (req, res) => {
+// Endpoint para leer Proveedores
+app.get("/Proveedores", async (req, res) => {
   try {
     const pool = await sql.connect(config);
 
     const result = await pool.request().query(`
-      SELECT MATNR, WERKS, MAKTX, LAEDA, MTART, MATKL, MEINS, PREIS 
-      FROM MM60
+      SELECT LIFNR, NAME1 
+      FROM Proveedores
     `);
 
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -31,14 +31,14 @@ app.get("/mm60", async (req, res) => {
   }
 });
 
-// Endpoint para leer MM60
-app.get("/mm60", async (req, res) => {
+// Endpoint para leer PedidosDeCompra_Ekpo
+app.get("/PedidosDeCompra_Ekpo", async (req, res) => {
   try {
     const pool = await sql.connect(config);
 
     const result = await pool.request().query(`
-      SELECT MATNR, WERKS, MAKTX, LAEDA, MTART, MATKL, MEINS, PREIS 
-      FROM MM60
+      SELECT EBELN, EBELP, AEDAT, TXZ01, MENGE, PLIFZ 
+      FROM PedidosDeCompra_Ekpo
     `);
 
     res.setHeader("Access-Control-Allow-Origin", "*");
